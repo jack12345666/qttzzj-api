@@ -1,0 +1,30 @@
+server:
+  port: 9999
+spring:
+  profiles:
+    active: test
+  jackson:
+    time-zone: GMT+8
+## PageHelper分页插件
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql
+mybatis-plus:
+  type-aliases-package: com.vpn.website.client.model
+  mapper-locations: classpath:sqlmap/*Mapper.xml
+#  global-config:
+#    db-config:
+#      logic-delete-field: isValid  #相当于在该字段增加 @TableLogic
+#      logic-delete-value: 0 #默认值1
+#      logic-not-delete-value: 1 #默认值0
+  configuration:
+    mapUnderscoreToCamelCase: true
+    map-underscore-to-camel-case: true
+    cache-enabled: false
+    #主键返回
+    use-generated-keys: true
+    default-executor-type: REUSE
+
+

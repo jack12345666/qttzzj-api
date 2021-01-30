@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.vpn.website.client.mapper.TBuildingleaseMapper">
+    <insert id="addBuilding" parameterType="com.vpn.website.client.dto.TBuildingLeaseAddDTO" useGeneratedKeys="true" keyProperty="id">
+        insert into t_buildinglease (no, areaId, areaName, title, address, thumbnail, mainPic, buildingNo, landUsage,
+        floorArea, floorAreaUnit, buildingArea, buildingAreaUnit, totalFloor, floorHeight, loadBearing, loadBearingUnit,
+        millConstruction, buildingUsage, isStandard, existElevator, electricity, spareArea, price, priceUnit, priceLow,
+        priceHigh, bridgeCrane, bridgeCraneTon, description, contactName, contactTel, contactMobile, orgContactId, orgContactName,
+        orgContactTel, orgContactMobile, employeeId, employeeName, editTime,viewCount, displayNo, isHot, isNew, isTop, comment, status
+        ) values (
+         #{no}, #{areaId}, #{areaName}, #{title}, #{address}, #{thumbnail}, #{mainPic}, #{buildingNo}, #{landUsage},
+         #{floorArea}, #{floorAreaUnit}, #{buildingArea}, #{buildingAreaUnit}, #{totalFloor}, #{floorHeight}, #{loadBearing}, #{loadBearingUnit},
+         #{millConstruction}, #{buildingUsage}, #{isStandard}, #{existElevator}, #{electricity}, #{spareArea}, #{price}, #{priceUnit},
+         #{priceLow}, #{priceHigh}, #{bridgeCrane}, #{bridgeCraneTon}, #{description}, #{contactName}, #{contactTel}, #{contactMobile}, #{orgContactId},
+         #{orgContactName}, #{orgContactTel}, #{orgContactMobile}, #{employeeId}, #{employeeName}, #{editTime}, #{viewCount}, #{displayNo},
+         #{isHot}, #{isNew}, #{isTop}, #{comment}, #{status}
+        )
+    </insert>
+    <select id="selectLeaseList" resultType="com.vpn.website.client.vo.UserLeaseVo">
+        select id, areaId, areaName, title, address, mainPic, thumbnail, buildingNo, floorArea, floorAreaUnit, buildingArea, buildingAreaUnit,
+        totalFloor, floorHeight, price, priceUnit, priceLow, priceHigh,viewCount, displayNo, createTime from t_buildinglease  ${ew.customSqlSegment}
+    </select>
+    <update id="updateBuildingStatus">
+        update t_buildinglease set status = #{status} where id = #{id}
+    </update>
+
+    <select id="getLeaseList" resultType="com.vpn.website.client.dto.TBuildingLeaseDTO">
+        select * from t_buildinglease  ${ew.customSqlSegment}
+    </select>
+</mapper>

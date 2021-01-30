@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.vpn.website.client.mapper.LandMapper">
+  <select id="selectLandList" resultType="com.vpn.website.client.model.Land">
+      select * from t_land  ${ew.customSqlSegment}
+  </select>
+</mapper>

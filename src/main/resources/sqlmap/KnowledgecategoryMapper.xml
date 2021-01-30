@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.vpn.website.client.mapper.KnowledgecategoryMapper">
+    <delete id="toDeleteCategory">
+        delete from t_knowledgecategory where id = #{id}
+    </delete>
+    <update id="editCategory">
+        update t_knowledgecategory set name = #{name} where id = #{id}
+    </update>
+    <select id="toSelectCounts" resultType="java.lang.Integer">
+        select count(*) from t_knowledgecategory where parentId = #{id} and isValid = 1
+    </select>
+    <select id="selectCategoryOfQs" resultType="java.lang.Integer">
+        select count(*) from  t_knowledgequestion where category = #{id}
+    </select>
+</mapper>

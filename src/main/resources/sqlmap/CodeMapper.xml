@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.vpn.website.client.mapper.CodeMapper">
+    <select id="selectCateGory" resultType="com.vpn.website.client.model.Code">
+        select * from t_code where category = #{category} and isValid = 1 order by displayNo DESC
+    </select>
+</mapper>
